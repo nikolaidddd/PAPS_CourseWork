@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "start": "nodemon .\\server\\app.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "hbs": "^4.2.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongodb": "^5.1.0",
+    "mongoose": "^7.0.3",
+    "socket.io": "^4.6.1"
+  }
+}

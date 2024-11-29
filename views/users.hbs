@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель управления</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="css/modal_create_req.css">
+    <link rel="stylesheet" href="css/dispatcher.css">
+    <link rel="stylesheet" href="css/users.css">
+</head>
+<body>
+    <div class="menu">
+        <div class="menu_title" style="display: flex; justify-content:center; margin-bottom: 30px;">
+            <div class="menu_title_logo">
+               <img src="images/logo.png" alt="" style="width: 140px;">
+            </div>
+        </div>
+        <div class="header_top_menu_list_item">
+            <a href="/dispatcher">Заявки</a>
+        </div>
+        <div class="header_top_menu_list_item">
+            <a href="">Отчеты</a>
+        </div>
+        <div class="header_top_menu_list_item">
+            <a href="/dispatcher/users">Пользователи</a>
+        </div>
+        <div class="header_top_menu_list_item">
+            <a href="">Платежи</a>
+        </div>
+        <div class="header_top_menu_list_item">
+            <a href="">Жильцы</a>
+        </div>
+    </div>
+    <div class="main">
+        <div class="main_title">
+            Журнал пользователей
+        </div>
+        <div class="main_create_user">
+            <button class="main_create_user_btn">
+                <img src="images/request_create.png" alt="">
+                Создать пользователя
+            </button>
+        </div>
+        <div class="main_tabs">
+            <div class="main_tabs_item active">Пользователи</div>
+            <div class="main_tabs_item">Специалисты</div>
+            <div class="main_tabs_item">Диспетчеры</div>
+        </div>
+        <div class="main_users_table">
+            <div class="main_users_table_titles">
+                <div class="main_users_table_titles_item" style="width:200px;">ID пользователя</div>
+                <div class="main_users_table_titles_item" style="width:160px;">ФИО</div>
+                <div class="main_users_table_titles_item" style="width:160px;">Адрес</div>
+                <div class="main_users_table_titles_item" style="width:100px;">Телефон</div>
+                <div class="main_users_table_titles_item" style="width:140px;">Логин</div>
+                <div class="main_users_table_titles_item" style="width:140px;">Пароль</div>
+                <div class="main_users_table_titles_item" style="width:100px;">Роль</div>
+
+            </div>
+            <div class="main_users_table_content"></div>
+        </div>
+
+         <div class="modal hide fade">
+            <div class="modal_content">
+                <div class="modal_content_title">
+                    Создание пользователя
+                </div>
+                <form name="createNewUser">
+                    <div class="modal_content_input">
+                        <input class="modal_content_input_item" id="name" type="text" placeholder="ФИО" required>
+                        <input class="modal_content_input_item modal_content_input_item_half" id="city" type="text" placeholder="Город" required>
+                        <input class="modal_content_input_item modal_content_input_item_half" id="street" type="text" placeholder="Улица" required>
+                        <input class="modal_content_input_item modal_content_input_item_half" id="numHome" type="text" placeholder="Дом" required>
+                        <input class="modal_content_input_item modal_content_input_item_half" id="numApart" type="text" placeholder="Квартира" required>
+                        <input class="modal_content_input_item" id="tel" type="text" placeholder="Телефон" required>
+                        <input class="modal_content_input_item" id="email" type="email" placeholder="Электронная почта" required>
+                        <input class="modal_content_input_item" id="login" type="text" placeholder="Логин" required>
+                        <input class="modal_content_input_item" id="password" type="text" placeholder="Пароль" required>
+                        <div class="radio">
+                            <input type="radio" name="role" id="role_client" value="Пользователь" checked> Пользователь
+                            <input type="radio" name="role" id="role_spec" value="Специалист">Специалист
+                            <input type="radio" name="role" id="role_dispatcher" value="Диспетчер">Диспетчер
+                        </div>
+                        <button class="modal_content_input_submit">Создать</button>
+                    </div>
+                </form>
+                <div class="modal_content_close">
+                    <img src="images/closing.png" alt="close">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/users.js"></script>
+</body>
+</html>

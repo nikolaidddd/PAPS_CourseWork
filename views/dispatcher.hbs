@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель управления</title>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="css/modal_create_req.css">
+    <link rel="stylesheet" href="css/dispatcher.css">
+</head>
+<body>
+    <div class="menu">
+        <div class="menu_title" style="display: flex; justify-content:center; margin-bottom: 30px;">
+            <div class="menu_title_logo">
+               <img src="images/logo.png" alt="" style="width: 140px;">
+            </div>
+        </div>
+        <div class="header_top_menu_list_item">
+            <a href="/dispatcher">Заявки</a>
+        </div>
+        <div class="header_top_menu_list_item">
+            <a href="">Отчеты</a>
+        </div>
+        <div class="header_top_menu_list_item">
+            <a href="/dispatcher/users">Пользователи</a>
+        </div>
+        <div class="header_top_menu_list_item">
+            <a href="">Платежи</a>
+        </div>
+        <div class="header_top_menu_list_item">
+            <a href="/dispatcher/residents">Жильцы</a>
+        </div>
+    </div>
+    <div class="main">
+        <div class="main_title">
+            Журнал заявок
+        </div>
+        <div class="main_requests_status">
+            <div class="main_requests_status_item">
+                <div class="main_requests_status_item_content">
+                    <div class="main_requests_status_item_img">
+                        <img src="images/request_new.png" alt="">
+                    </div>
+                    <div class="main_requests_status_item_descr">
+                        <span>НОВАЯ</span>
+                        {{request_new_count}} шт.
+                    </div>
+                </div>
+            </div>
+            <div class="main_requests_status_item" style="background-color: rgb(255, 248, 117);">
+                <div class="main_requests_status_item_content">
+                    <div class="main_requests_status_item_img">
+                        <img src="images/send.png" alt="">
+                    </div>
+                    <div class="main_requests_status_item_descr">
+                        <span>ПЕРЕДАНА</span>
+                        {{request_send_count}} шт.
+                    </div>
+                </div>
+            </div>
+            <div class="main_requests_status_item" style="background-color: rgb(255, 207, 117);">
+                <div class="main_requests_status_item_content s">
+                    <div class="main_requests_status_item_img">
+                        <img src="images/request_inwork.png" alt="">
+                    </div>
+                    <div class="main_requests_status_item_descr">
+                        <span>В РАБОТЕ</span>
+                        {{request_inwork_count}} шт.
+                    </div>
+                </div>
+            </div>
+            <div class="main_requests_status_item" style="background-color: rgb(135, 255, 117);">
+                <div class="main_requests_status_item_content">
+                    <div class="main_requests_status_item_img">
+                        <img src="images/request_done.png" alt="">
+                    </div>
+                    <div class="main_requests_status_item_descr">
+                        <span>ВЫПОЛНЕНА</span>
+                        {{request_done_count}} шт.
+                    </div>
+                </div>
+            </div>
+            <div class="main_requests_status_item" style="background-color: rgb(255, 117, 117);">
+                <div class="main_requests_status_item_content">
+                    <div class="main_requests_status_item_img">
+                        <img src="images/request_cancel.png" alt="">
+                    </div>
+                    <div class="main_requests_status_item_descr">
+                        <span>ОТМЕНА</span>
+                        {{request_cancel_count}} шт.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main_create_request">
+            <button class="modal_open_btn">
+                <img src="images/request_create.png" alt="">
+                Создать заявку
+            </button>
+        </div>
+        <div class="main_requests_table">
+            <div class="main_requests_table_titles">
+                <div class="main_requests_table_titles_item" style="width: 200px">Номер заявки</div>
+                <div class="main_requests_table_titles_item" style="width: 240px">Адрес и заявитель</div>
+                <div class="main_requests_table_titles_item" style="width: 110px">Вид заявки</div>
+                <div class="main_requests_table_titles_item" style="width: 160px">Исполнитель</div>
+                <div class="main_requests_table_titles_item" style="width: 140px">Статус заявки</div>
+                <div class="main_requests_table_titles_item" style="width: 300px">Описание и результат</div>
+            </div>
+            <div class="main_requests_table_content"></div>
+        </div>
+
+         <div class="modal hide fade">
+            <div class="modal_content">
+                <div class="modal_content_title">
+                    Оформление заявки
+                </div>
+                <form action="" name="sendRequestForm">
+                    <div class="modal_content_input">
+                        <div class="modal_content_input_resident">
+                            Выберите жильца: <br>
+                            <select id="city"></select>
+                            <select id="street"></select>
+                            <select id="numHome"></select>
+                            <select id="numApart"></select>
+                            <input type="text" disabled id="resident">
+                        </div>
+                        <div class="modal_content_input_typeproblem">
+                            Выберите проблемный объект из списка:
+                            <select id="typeproblem"></select>
+                        </div>
+                        <div class="modal_content_input_problem">
+                            Уточните тип проблемы:
+                            <select id="select_problem"></select>
+
+                        </div>
+                        <div class="modal_content_input_textarea">
+                            Описание:
+                            <textarea id="problem_descr" class="modal_content_input_item" required resize="none"></textarea>
+                        </div>
+                        <input class="modal_content_input_item modal_content_input_submit" type="submit">
+                    </div>
+                </form>
+                <div class="modal_content_close">
+                    <img src="images/closing.png" alt="close">
+                </div>
+            </div>
+            <div class="modal_answer hide">
+                <div class="modal_answer_content">
+                    <div class="modal_answer_content_text"></div>
+                    <button class="modal_answer_content_btn">Ок</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/dispatcher.js"></script>
+</body>
+</html>

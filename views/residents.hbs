@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Жильцы</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="css/residents.css">
+</head>
+<body>
+    <div class="menu">
+        <div class="menu_title" style="display: flex; justify-content:center; margin-bottom: 30px;">
+            <div class="menu_title_logo">
+               <img src="images/logo.png" alt="" style="width: 140px;">
+            </div>
+        </div>
+        <div class="header_top_menu_list_item">
+            <a href="/dispatcher">Заявки</a>
+        </div>
+        <div class="header_top_menu_list_item">
+            <a href="">Отчеты</a>
+        </div>
+        <div class="header_top_menu_list_item">
+            <a href="/dispatcher/users">Пользователи</a>
+        </div>
+        <div class="header_top_menu_list_item">
+            <a href="">Платежи</a>
+        </div>
+        <div class="header_top_menu_list_item">
+            <a href="">Жильцы</a>
+        </div>
+    </div>
+    <div class="main">
+        <div class="main_title">Журнал жильцов</div>
+        <div class="main_addresident_btn"><button class="add_resident_btn">Создать жильца</button></div>
+        <div class="main_residents_table">
+            <div class="main_residents_table_titles">
+                <div class="main_residents_table_titles_item" style="width: 250px">Id</div>
+                <div class="main_residents_table_titles_item" style="width: 300px">ФИО</div>
+                <div class="main_residents_table_titles_item sort_by_address" style="width: 450px">Адрес</div>
+                <div class="main_residents_table_titles_item" style="width: 220px">Контакты</div>
+            </div>
+            <div class="main_residents_table_content">
+                
+            </div>
+        </div>
+    </div>
+    <div class="modal hide fade">
+        <div class="modal_content">
+            <div class="modal_content_title">
+                Добавление жильца
+            </div>
+            <form action="" name="sendRequestForm">
+                <div class="modal_content_input">
+                    <div class="modal_content_input_item">
+                        <span>Город:</span>
+                        <input type="text" id="city" required>
+                    </div>
+                    <div class="modal_content_input_item">
+                        <span>Улица:</span>
+                        <input type="text" id="street" required>
+                    </div>
+                    <div class="modal_content_input_item">
+                        <span>Дом:</span>
+                        <input type="text" id="numHome" required>
+                    </div>
+                    <div class="modal_content_input_item">
+                        <span>Квартира:</span>
+                        <input type="text" id="numApart" required>
+                    </div>
+                    <div class="modal_content_input_item">
+                        <span>Фамилия:</span>
+                        <input type="text" id="surname" required>
+                    </div>
+                    <div class="modal_content_input_item">
+                        <span>Имя:</span>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="modal_content_input_item">
+                        <span>Телефон:</span>
+                        <input type="text" id="tel" required>
+                    </div>
+                    <input class="modal_content_input_item modal_content_input_submit" type="submit">
+                </div>
+            </form>
+            <div class="modal_content_close">
+                <img src="images/closing.png" alt="close">
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+    <script src="js/residents.js"></script>
+</body>
+</html>
